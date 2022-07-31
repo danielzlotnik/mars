@@ -1,0 +1,44 @@
+.gallery {
+  display: flex;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.track {
+  flex: 1;
+  display: flex;
+  gap: calc(var(--spacing) * 2);
+}
+
+.control {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+
+  &.left {
+    background-image: linear-gradient(90deg, white 20%, transparent 100%);
+    left: 0;
+  }
+
+  &.right {
+    background-image: linear-gradient(-90deg, white 20%, transparent 100%);
+    right: 0;
+  }
+
+  > svg {
+    fill: var(--color-tan-70);
+    width: 56px;
+    height: 56px;
+  }
+}
+
+.pagination {
+  margin-top: var(--spacing);
+  color: var(--color-gray-30);
+  text-align: right;
+}
