@@ -1,0 +1,32 @@
+.layout {
+  display: grid;
+  grid-template:
+    'text'
+    'links'
+    'image';
+  grid-template-rows: auto;
+  grid-template-columns: auto;
+  gap: calc(var(--spacing) * 2);
+
+  @media screen and (min-width: 780px) {
+    grid-template:
+      'image text'
+      'image links';
+    grid-template-columns: auto auto;
+    grid-template-rows: 1fr auto;
+  }
+}
+
+.imageSection {
+  grid-area: image;
+}
+
+.textSection {
+  grid-area: text;
+}
+
+.linksSection {
+  grid-area: links;
+  display: flex;
+  gap: calc(var(--spacing) * 2);
+}

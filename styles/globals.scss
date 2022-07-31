@@ -1,6 +1,7 @@
 html,
 body {
   font-family: Helvetica Neue, Helvetica, Roboto, Arial, sans-serif;
+  color: var(--color-text)
 }
 
 a {
@@ -10,8 +11,15 @@ a {
 
 * {
   box-sizing: border-box;
+
+  :focus {
+    outline: none;
+  }
 }
 
 :root {
-  --gutter: 8px
+  --spacing: 8px;
+  --color-tan-light: #DED6C8;
+  --color-tan-dark: #B29268;
+  --color-text: #262626;
 }
