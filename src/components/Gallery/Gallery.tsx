@@ -5,6 +5,7 @@ import ChevronLeft from '@/components/Icons/ChevronLeft';
 import ChevronRight from '@/components/Icons/ChevronRight';
 import Image from '@/components/Image';
 import { ImageProps } from '@/components/Image/types';
+import usePagination from '@/components/Pagination/usePagination';
 import { Size } from '@/types';
 
 import styles from './Gallery.module.scss';
@@ -23,21 +24,13 @@ interface GalleryProps {
  * @constructor
  */
 function Gallery({ children, size, images }: GalleryProps) {
-  const [currentPage, setCurrentPage] = useState(0);
   const [pageSize, setPageSize] = useState(0);
   const trackRef = useRef<HTMLDivElement>(null);
 
-  const totalItems = images.length;
-  const totalPages = Math.ceil(totalItems / pageSize);
-  const isLastPage = (currentPage + 1) * pageSize >= totalItems;
-  const isFirstPage = currentPage === 0;
+  const { currentPage, prev, next, totalPages, isLastPage, isFirstPage, startIndex, endIndex } =
+    usePagination({ total: images.length, pageSize });
 
-  const startIndex = currentPage * pageSize;
-  const endIndex = startIndex + pageSize;
   const pageItems = images.slice(startIndex, endIndex);
-
-  const slidePrev = () => setCurrentPage(currentPage => currentPage - 1);
-  const slideNext = () => setCurrentPage(currentPage => currentPage + 1);
 
   const calculatePageSize = () => {
     if (!trackRef.current) return;
@@ -57,7 +50,7 @@ function Gallery({ children, size, images }: GalleryProps) {
     <>
       <div className={styles.gallery}>
         {!isFirstPage && (
-          <Control onClick={slidePrev} ariaLabel="previous images" direction={Direction.left}>
+          <Control onClick={prev} ariaLabel="previous images" direction={Direction.left}>
             <ChevronLeft />
           </Control>
         )}
@@ -69,7 +62,7 @@ function Gallery({ children, size, images }: GalleryProps) {
         </div>
 
         {!isLastPage && (
-          <Control onClick={slideNext} ariaLabel="next images" direction={Direction.right}>
+          <Control onClick={next} ariaLabel="next images" direction={Direction.right}>
             <ChevronRight />
           </Control>
         )}
