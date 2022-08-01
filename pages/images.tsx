@@ -19,12 +19,17 @@ const Images: NextPage = () => {
     const target = e.target as typeof e.target & {
       'earth-date': { value: string };
     };
-    const date = new Date(target['earth-date'].value).toISOString().split('T')[0];
+    try {
+      const date = new Date(target['earth-date'].value).toISOString().split('T')[0];
 
-    const rawImages = await getImages({ date });
-    const images = convert(rawImages);
+      const rawImages = await getImages({ date });
+      const images = convert(rawImages);
 
-    setImages(images);
+      setImages(images);
+    } catch (e) {
+      console.error(e);
+      // TODO - proper error handling and validation
+    }
   };
 
   const {
