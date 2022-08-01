@@ -1,0 +1,18 @@
+.pagination {
+  display: flex;
+  gap: var(--spacing);
+  justify-content: flex-end;
+}
+
+.pageButton {
+  width: calc(var(--spacing) * 4);
+  height: calc(var(--spacing) * 4);
+  border: 1px solid var(--color-gray-10);
+  color: 1px solid var(--color-gray-20);
+  border-radius: 4px;
+
+  &.highlight {
+    background-color: var(--color-tan-80);
+    color: white;
+  }
+}

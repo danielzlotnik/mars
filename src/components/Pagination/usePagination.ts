@@ -1,6 +1,8 @@
 import { useMemo, useState } from 'react';
 
-function usePagination({ total, pageSize }: { total: number; pageSize: number }) {
+import { Pagination } from '@/components/Pagination/types';
+
+function usePagination({ total, pageSize }: { total: number; pageSize: number }): Pagination {
   const [currentPage, setCurrentPage] = useState(0);
 
   const prev = () => setCurrentPage(currentPage => currentPage - 1);

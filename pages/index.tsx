@@ -7,7 +7,7 @@ import Page from '@/components/Page';
 import Heading from '@/components/Page/Heading';
 import styles from '@/components/Page/Page.module.scss';
 import SubHeading from '@/components/Page/SubHeading';
-import { getImages } from '@/services/images';
+import { getImages, convert } from '@/services/images';
 
 interface PageProps {
   images: ImageProps[];
@@ -27,7 +27,7 @@ const Home: NextPage<PageProps> = ({ images }) => {
       <SubHeading>
         Curiosity rover image <span className={styles.highlight}>from today</span>
       </SubHeading>
-      <Gallery size={{ width: 215, height: 236 }} images={images} />
+      <Gallery size={{ width: 216, height: 232 }} images={images} />
     </Page>
   );
 };
@@ -36,12 +36,7 @@ export async function getStaticProps() {
   // the API crashes if we provide today's date
   const date = '2020-07-14';
   const rawImages = await getImages({ date });
-
-  const images = rawImages.map((image, index) => ({
-    id: `${image.id}`,
-    src: image.img_src,
-    alt: `Curiosity image ${index}`,
-  }));
+  const images = convert(rawImages);
 
   return {
     props: {

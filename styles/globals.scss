@@ -27,11 +27,32 @@ button {
   outline: inherit;
 }
 
+input {
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  outline: inherit;
+}
+
+input::-webkit-calendar-picker-indicator{
+  display: none;
+}
+input[type="date"]::-webkit-input-placeholder{
+  visibility: hidden !important;
+}
+
 :root {
   --spacing: 8px;
+
   --color-tan-10: #DED6C8;
   --color-tan-60: #B29268;
   --color-tan-70: #8E6B3D;
+  --color-tan-80: #8d6338;
+
+  --color-gray-10: #e9e9e9;
+  --color-gray-20: #b3b0a9;
   --color-gray-30: #949494;
+
   --color-text: #262626;
 }
