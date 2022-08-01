@@ -27,7 +27,7 @@ function Pagination({
           key={index}
           className={clsx({
             [styles.pageButton]: true,
-            [styles.highlight]: currentPage === index + 1,
+            [styles.highlight]: currentPage === index,
           })}
           onClick={createClickHandler(index)}
         >
