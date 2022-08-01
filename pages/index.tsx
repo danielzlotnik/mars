@@ -6,6 +6,7 @@ import { ImageProps } from '@/components/Image/types';
 import Page from '@/components/Page';
 import Heading from '@/components/Page/Heading';
 import styles from '@/components/Page/Page.module.scss';
+import SubHeading from '@/components/Page/SubHeading';
 import { getImages } from '@/services/images';
 
 interface PageProps {
@@ -20,11 +21,12 @@ const Home: NextPage<PageProps> = ({ images }) => {
         image={{
           src: 'assets/images/rover_hero.jpeg',
           alt: 'Curiosity rover image',
+          height: 348,
         }}
       />
-      <h2>
+      <SubHeading>
         Curiosity rover image <span className={styles.highlight}>from today</span>
-      </h2>
+      </SubHeading>
       <Gallery size={{ width: 215, height: 236 }} images={images} />
     </Page>
   );

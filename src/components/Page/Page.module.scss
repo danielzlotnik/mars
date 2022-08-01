@@ -1,6 +1,6 @@
 .page {
   padding: calc(var(--spacing) * 3);
-  max-width: 1160px;
+  max-width: 1148px;
 
   @media screen and (min-width: 780px) {
     padding: calc(var(--spacing) * 5);
@@ -10,6 +10,10 @@
 .heading {
   margin-bottom: calc(var(--spacing) * 2);
   margin-top: 0;
+}
+
+.subHeading {
+  font-weight: normal;
 }
 
 .highlight {
