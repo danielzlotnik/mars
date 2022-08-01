@@ -1,6 +1,6 @@
 import type { NextPage } from 'next';
 
-import Gallery from '@/components/Gallery/Gallery';
+import Gallery from '@/components/Gallery';
 import Hero from '@/components/Hero';
 import { ImageProps } from '@/components/Image/types';
 import Page from '@/components/Page';

@@ -1,5 +1,6 @@
 import Description from '@/components/Hero/Description';
-import Image, { ImageProps } from '@/components/Image';
+import Image from '@/components/Image';
+import { ImageProps } from '@/components/Image/types';
 import Link from '@/components/Link';
 
 import styles from './Hero.module.scss';
