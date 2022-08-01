@@ -17,6 +17,8 @@ function Pagination({
 }: PaginationProps) {
   const createClickHandler = (index: number) => () => setCurrentPage(index);
 
+  if (!totalPages) return null;
+
   return (
     <div className={styles.pagination}>
       <button className={styles.pageButton} onClick={prev} disabled={isFirstPage}>
